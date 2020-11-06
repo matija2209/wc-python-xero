@@ -49,3 +49,12 @@ customer_id = order_data.get('customer_id')
 customer_group = get_customer_role(customer_id)
 
 apply_tax_calculation = list(map(lambda x: tax_adjusted(x,customer_group), order_data['items']))
+
+
+"""
+subtotal gets multiplied by 1.21 if the customer group ends with "_rate_21" bypassing any tax calculations done by WC
+[{'name': 'E-Liquids - OG Kush - Pack of 6 - 600mg',
+  'variation_id': 382,
+  'subtotal': 135.036,
+  'sku': 'HY-OGK-06-60-00',
+  'price': 55.8}]"""
